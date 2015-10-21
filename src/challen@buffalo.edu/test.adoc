@@ -1,0 +1,10 @@
+---
+name: test
+list: 
+- first
+- second
+nested: 
+  name: test2
+  random: value
+---
+This is a test file.
