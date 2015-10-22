@@ -1,0 +1,33 @@
+{
+  "name": "metalsmith-internetclass",
+  "version": "0.0.1",
+  "description": "Metalsmith build pipeline for internet-class.org content.",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/blue-systems-group/internet-class/issues"
+  },
+  "homepage": "https://github.com/blue-systems-group/internet-class",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:blue-systems-group/internat-class.git"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Geoffrey Challen",
+    "email": "challen@buffalo.edu"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.0.3",
+    "metalsmith": "^2.1.0",
+    "metalsmith-asciidoc": "^1.1.0",
+    "metalsmith-clean": "0.0.0",
+    "metalsmith-copy": "^0.2.1",
+    "metalsmith-filemetadata": "0.0.4",
+    "metalsmith-layouts": "^1.4.2",
+    "minimist": "^1.2.0"
+  }
+}

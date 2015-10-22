@@ -1,0 +1,12 @@
+---
+title: Why Discuss the Internet?
+videos:
+- z32HJ7PHnKY
+---
+Because it's by far the most exciting and transformative computer technology
+every created. Actually, maybe strike the word "computer" from the last
+sentence. When historians look back on our era one thousand years from now
+footnote:[Hopefully that will be possible...], the Internet will stand out to
+them as one of the crowning achievements of our time.
+
+Hyperbole? Not really.
