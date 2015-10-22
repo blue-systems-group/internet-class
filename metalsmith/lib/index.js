@@ -1,8 +1,10 @@
 var argv = require('minimist')(process.argv.slice(2)),
     path = require('path');
-var content_dir = argv._[0];
-if (!content_dir) {
-  console.log("Usage: blue <dir>, where <dir> has your sources (src) and templates (layouts).");
+var content_dir = argv._[0],
+    mongo_url = argv._[1];
+
+if (!content_dir || !mongo_url) {
+  console.log("Usage: <content> <mongo_url>");
   return;
 }
 content_dir = path.join(process.cwd(), content_dir);
@@ -16,12 +18,17 @@ var metalsmith = require('metalsmith'),
     ignore = require('metalsmith-ignore'),
     clean = require('metalsmith-clean');
 
-function plugin(){
+var mongo = require('mongodb').MongoClient,
+    assert = require('assert');
+
+function updatemongo() {
   return function(files, metalsmith, done){
-    setImmediate(done);
-    Object.keys(files).forEach(function(file){
-      console.log(files[file]);
-	});
+    mongo.connect(mongo_url, function(err, db) {
+      assert.equal(null, err);
+      console.log("Connected correctly to server");
+      db.close();
+      done();
+    });
   };
 }
 
@@ -41,6 +48,7 @@ metalsmith(process.cwd())
   }))
   .use(formatcheck({ verbose: true , failWithoutNetwork: false }))
   .use(ignore('**/*.html'))
+  .use(updatemongo())
 	.clean(true)
 	.build(function throwErr (err) {
 	  if (err) {
